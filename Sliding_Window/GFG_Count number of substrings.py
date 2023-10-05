@@ -10,6 +10,8 @@ Output:
 Explanation:
 The substrings are: "ab", "ba" and "aba".
 """
+
+# Exactly k = (Atmost k) - (atmost k-1)
 class Solution:
     def substrCount (self,s, k):
         atMostK = 0; atMostK_1 = 0; n = len(s)
