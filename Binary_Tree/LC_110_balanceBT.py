@@ -10,12 +10,12 @@ class Solution:
       def dfs(root):
         nonlocal flag
         if not root: 
-          return True
-        l = dfs(root.left) 
-        r = dfs(root.right) 
-        if abs(l - r) > 1:
+          return 0 
+        l = 1 + dfs(root.left) 
+        r = 1 + dfs(root.right) 
+        if abs(l-r) > 1:
           flag = False
-        return 1 + max(l, r) 
+        return max(l,r) 
       
       dfs(root)
       return flag
