@@ -1,3 +1,24 @@
+#MLE
+class Solution:
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        
+        def fun(s, p = ""):
+            if not s:
+                s1_perms.append(p)
+                return 
+            for i in range(len(p) + 1):
+                prev = p[:i]
+                last = p[i:]
+                fun(s[1:], prev + s[0] + last)
+        
+        s1_perms = []
+        fun(s1)
+        for perm in s1_perms:
+            if perm in s2:
+                return True 
+        return False
+
+#Sliding window(Accepted)
 from collections import Counter
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
