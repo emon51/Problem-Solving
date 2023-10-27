@@ -1,3 +1,5 @@
+
+#Accepted but not optimal.
 class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         #TC: O(n1 + n2); SC: O(n1 + n2)
