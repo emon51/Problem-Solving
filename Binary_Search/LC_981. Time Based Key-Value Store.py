@@ -21,6 +21,7 @@ class TimeMap:
           res = vals[i][0]
       return res
 #========================================================================================#
+#Binary_search
 class TimeMap:
 
     def __init__(self):
