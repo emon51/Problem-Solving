@@ -1,3 +1,25 @@
+#BFS_TLE
+from collections import deque
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+
+        q = deque()
+        q.append(0) #index
+        n = len(nums)
+        vis = set()
+
+        while q:
+            index = q.popleft()
+            if index == (n-1):
+                return True 
+            for i in range(1, nums[index]+1):
+                if (index + i) < n and (index + i) not in vis:
+                    q.append(index + i)
+                    vis.add(index + i)
+        return False 
+
+#=====================================================================================#
+
 #DP_TLE
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
