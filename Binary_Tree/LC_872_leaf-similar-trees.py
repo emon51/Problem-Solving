@@ -43,10 +43,9 @@ class Solution:
             return
         stack = [node]
         while stack:
+            node = stack.pop()
             if not node.left and not node.right:
                 hold.append(node.val)
-            node = stack.pop()
-
             if node.left is not None:
                 stack.append(node.left)
             if node.right is not None:
