@@ -50,5 +50,6 @@ class Solution:
                 stack.append(node.left)
             if node.right is not None:
                 stack.append(node.right)
+        print(hold)
         return hold
             
