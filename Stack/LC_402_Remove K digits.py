@@ -20,5 +20,8 @@ class Solution:
 
         if k:
             stack = stack[: -k]
+        #while k and stack:
+        #   stack.pop()
+        #   k -= 1
    
         return ''.join(stack) if stack else '0'
