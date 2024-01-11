@@ -14,7 +14,7 @@ class Solution:
             while stack and k and stack[-1] > n:
                 stack.pop()
                 k -= 1
-            if not stack and n == '0':
+            if not stack and n == '0': #Prevent leading zero.
                 continue
             stack.append(n)
 
