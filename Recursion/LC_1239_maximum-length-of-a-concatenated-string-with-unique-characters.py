@@ -52,20 +52,42 @@ def f(i,  p = []):
 		
 f(0)
 """
+
+#Solution_1
 class Solution:
     def maxLength(self, arr: List[str]) -> int:
         def is_unique(s):
             return len(s) == len(set(s))
 
         def fun(i, p = ""):
-           nonlocal max_length
+            nonlocal res
+            if i >= len(arr):
+                if is_unique(p):
+                    res = max(res, len(p))
+                return 
+            #pick
+            fun(i + 1, p + arr[i])
+            #not_pick
+            fun(i + 1, p)
+
+        res = 0
+        fun(0)
+
+#Solution_2
+class Solution:
+    def maxLength(self, arr: List[str]) -> int:
+        def is_unique(s):
+            return len(s) == len(set(s))
+
+        def fun(i, p = ""):
+           nonlocal res
            if is_unique(p):
-               max_length = max(max_length, len(p))
+               res = max(res, len(p))
            for j in range(i, len(arr)):
                fun(j + 1, p + arr[j])
 
-        max_length = 0
+        res = 0
         fun(0)
-        return max_length
+        return res
 
 
