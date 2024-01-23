@@ -42,7 +42,16 @@ arr[i] contains only lowercase English letters.
 To solve this problem, we can use backtracking to generate all possible subsequences of the given array and check if each 
 subsequence has unique characters. If a subsequence has unique characters, you can update the maximum length accordingly.
 """
-
+"""
+#Generating all subsequences
+arr = [1, 2, 3]
+def f(i,  p = []):
+	print(p)
+	for j in range(i, len(arr)):
+		f(j + 1, p + [arr[j]])
+		
+f(0)
+"""
 class Solution:
     def maxLength(self, arr: List[str]) -> int:
         def is_unique(s):
