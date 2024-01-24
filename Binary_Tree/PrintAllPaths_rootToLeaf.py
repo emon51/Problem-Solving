@@ -1,6 +1,6 @@
 def dfs(root, p = []):
         if not root.left and not root.right:
-          p.append(root.val)
+          p += [root.val]
           res.append(p)
           return
         if root.left:
