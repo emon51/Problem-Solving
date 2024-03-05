@@ -1,4 +1,6 @@
 
+#Expected Time Complexity: O(1) for both push() and pop().
+#Expected Auxiliary Space: O(1) for both push() and pop().
 
 class Node:
 
