@@ -1,4 +1,4 @@
-
+#Tail_recursion
 def find_average(arr, index, sum):
   if index == len(arr):
     return sum / len(arr)
