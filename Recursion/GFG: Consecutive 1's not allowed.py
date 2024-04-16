@@ -63,3 +63,20 @@ class Solution:
     	    a = b
     	    b = c
     	return b % (10 ** 9 + 7)
+
+#Accepted
+#User function Template for python3
+class Solution:
+
+	def countStrings(self,n):
+    	mod = (10 ** 9 + 7)
+    	if n == 1:
+    	    return 2 #0, 1
+    	if n == 2:
+    	    return 3
+    	a, b = 2, 3
+    	for _ in range(2, n):
+    	    c = a + b
+    	    a = b % mod
+    	    b = c % mod
+    	return b % mod
