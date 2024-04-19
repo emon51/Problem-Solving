@@ -56,3 +56,17 @@ def frogJump(n: int, arr: List[int]) -> int:
         return val
     
     return dfs(n-1)
+
+#Bottom-Up
+def frogJump(n: int, arr: List[int]) -> int:
+
+    dp = [-1] * n 
+    dp[0] = 0
+    for i in range(1, n):
+        f1 = dp[i - 1] + abs(arr[i] - arr[i - 1])
+        f2 = float('inf')
+        if i > 1:
+            f2 = dp[i - 2] + abs(arr[i] - arr[i - 2])
+        dp[i] = min(f1, f2)
+    
+    return dp[n -1]
