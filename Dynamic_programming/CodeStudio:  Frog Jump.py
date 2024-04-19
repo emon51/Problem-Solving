@@ -37,8 +37,7 @@ Sample Output 2:
 7
 2
 '''
-
-
+#Space: O(n) + O(n)
 def frogJump(n: int, arr: List[int]) -> int:
 
     def dfs(n, dp = {}):
@@ -57,7 +56,7 @@ def frogJump(n: int, arr: List[int]) -> int:
     
     return dfs(n-1)
 
-#Bottom-Up
+#Bottom-Up Space: O(n)
 def frogJump(n: int, arr: List[int]) -> int:
 
     dp = [-1] * n 
@@ -70,3 +69,23 @@ def frogJump(n: int, arr: List[int]) -> int:
         dp[i] = min(f1, f2)
     
     return dp[n -1]
+
+
+#Constant space
+def frogJump(n: int, arr: List[int]) -> int:
+    if n <= 1:
+        return 0
+
+    prev_1 = 0 
+    prev_2 = 0  
+
+    for i in range(1, n):
+        f1 = prev_1 + abs(arr[i] - arr[i - 1])
+        f2 = prev_2 + abs(arr[i] - arr[i - 2]) if i > 1 else float('inf')
+        curr = min(f1, f2)
+        prev_2 = prev_1
+        prev_1 = curr
+
+    return prev_1 
+
+
