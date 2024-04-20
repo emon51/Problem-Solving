@@ -55,4 +55,38 @@ class Solution:
             dp[i] = val
             return val
         return dfs(nums, 0, len(nums))
+
+#Tabulation
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+
+        n = len(nums)
+        dp = [-1] * n
+        dp[0] = nums[0]
+        for i in range(1, n):
+            f1 = nums[i]
+            if (i - 2) >= 0:
+                f1 += dp[i - 2]
+            f2 = 0 + dp[i - 1]
+            val = max(f1, f2)
+            dp[i] = val 
+
+        return dp[n - 1]
+
+#Tabulation + Space Optimizaton O(1)
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+
+        n = len(nums)
+        prev1 = nums[0]
+        prev2 = 0
+        for i in range(1, n):
+            f1 = nums[i] + prev2
+            f2 = 0 + prev1
+            val = max(f1, f2)
+            prev2 = prev1
+            prev1 = val 
+
+        return prev1
+
         
