@@ -31,6 +31,35 @@ Constraints:
 1 <= text1.length, text2.length <= 1000
 text1 and text2 consist of only lowercase English characters.
 """
+#Brute Force
+class Solution:
+    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+
+        #Brute Force, finds all subsequences of text1 and text2 and check.
+        def fun(i, s, textNo, p = ''):
+            if i == len(s):
+                if textNo == 1:
+                    set1.add(p)
+                else:
+                    set2.add(p)
+                return
+            fun(i + 1, s, textNo, p + s[i])
+            fun(i + 1, s, textNo, p)
+
+
+
+        set1, set2 = set(), set()
+        fun(0, text1, 1)
+        fun(0, text2, 2)
+
+        res = 0 
+        for s in set1:
+            if s in set2:
+                res = max(res, len(s))
+        
+        return res
+
+        
 #TLE
 class Solution:
     def longestCommonSubsequence(self, s, t):
