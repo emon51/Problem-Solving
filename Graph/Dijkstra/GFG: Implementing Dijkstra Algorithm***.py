@@ -56,7 +56,38 @@ Constraints:
 0 ≤ S < V
 
 '''
+#Using Queue(Brute Force) --> Accepted But Not optimal takes more time
 
+from collections import deque
+class Solution:
+
+    #Function to find the shortest distance of all the vertices
+    #from the source vertex S.
+    def dijkstra(self, V, adj, src ):
+        
+        q = deque()
+        
+        q.append((src, 0))
+        dis = [float('inf')] * V
+        dis[src] = 0
+       
+        
+        while q:
+            u, d = q.popleft()
+            for v, w in adj[u]:
+                if (w + d) < dis[v]:
+                    dis[v] = (w + d)
+                    q.append((v, dis[v]))
+        
+        
+        for i, val in enumerate(dis):
+            if val == float('inf'):
+                dis[i] = -1
+        
+        return dis
+        
+
+#Using Priority Queue(Greedy) --> Optimal
 
 import heapq
 class Solution:
@@ -84,3 +115,5 @@ class Solution:
                 dis[i] = -1
         
         return dis
+
+
