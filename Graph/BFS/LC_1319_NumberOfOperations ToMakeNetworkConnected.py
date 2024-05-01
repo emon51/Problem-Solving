@@ -33,5 +33,34 @@ class Solution:
           cnt += 1
       
       return cnt - 1
+
+#DFS
+def makeGraphConnected(n, edges, m):
+
+    if m < (n - 1):
+        return -1
+    
+    adj = {u: [] for u in range(1, n + 1)}
+    for u, v in edges:
+        adj[u].append(v)
+        adj[v].append(u)
+    
+    vis = set()
+
+    def dfs(u):
+        vis.add(u)
+        for v in adj[u]:
+            if v not in vis:
+                dfs(v)
+    
+    components = 0
+    for u in range(1, n + 1):
+        if u not in vis:
+            dfs(u)
+            components += 1
+    return components - 1
+    
+
+
         
         
