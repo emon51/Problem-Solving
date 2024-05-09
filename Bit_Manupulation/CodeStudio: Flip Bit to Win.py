@@ -79,3 +79,24 @@ def flipBit(a):
             r += 1
         res = max(res, r - l - 1)
     return res
+
+#Sliding Window
+def flipBit(a):
+    s = ''
+    while a:
+        s = str(a & 1) + s
+        a >>= 1
+    
+    res = 0 
+    n = len(s)
+    zerocnt = 0
+    l = 0
+    for r in range(n):
+        zerocnt += 1 if s[r] == '0' else 0
+        while zerocnt >= 2:
+            if s[l] == '0':
+                zerocnt -= 1
+            l += 1
+        res = max(res, r - l + 1)
+    
+    return res
