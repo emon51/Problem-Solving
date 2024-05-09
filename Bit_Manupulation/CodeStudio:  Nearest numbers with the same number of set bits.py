@@ -66,7 +66,7 @@ def nearestNumbers(n):
     while countOnes(nxt) != target:
         nxt += 1
     
-    while countOnes(prev) != target:
+    while prev and countOnes(prev) != target:
         prev -= 1
     
     return [nxt, prev]
