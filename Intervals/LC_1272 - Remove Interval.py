@@ -43,8 +43,8 @@ class Solution:
                 ans.append([s, e])
             else:
                 #Overlap
-                if s < a:
+                if s < a: # Partial intersection at the start
                     ans.append([s, a])
-                if e > b:
+                if e > b: # Partial intersection at the end
                     ans.append([b, e])
         return ans
