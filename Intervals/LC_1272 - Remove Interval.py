@@ -45,6 +45,6 @@ class Solution:
                 #Overlap
                 if s < a:
                     ans.append([s, a])
-                if e > y:
+                if e > b:
                     ans.append([b, e])
         return ans
