@@ -33,6 +33,27 @@ Constraints:
 -109 <= ai < bi <= 109
 '''
 
+#Solution 1
+class Solution:
+    def removeInterval(self, intervals: List[List[int]], toBeRemoved: List[int]) -> List[List[int]]:
+        a, b = toBeRemoved
+        ans = []
+        for s, e in intervals:
+            #No Overlap
+            if s >= b or e <= a:
+                ans.append([s, e])
+            #Overlap
+            elif s < a and e > b:
+                ans.append([s, a])
+                ans.append([b, e])
+            elif s < a: 
+                ans.append([s, a])
+            elif e > b:  
+                ans.append([b, e])
+         return ans
+
+
+#Solution 2
 class Solution:
     def removeInterval(self, intervals: List[List[int]], toBeRemoved: List[int]) -> List[List[int]]:
         a, b = toBeRemoved
@@ -48,3 +69,13 @@ class Solution:
                 if e > b: # Partial intersection at the end
                     ans.append([b, e])
         return ans
+
+
+#Same Question: https://www.naukri.com/code360/problems/remove-interval_1380268?leftPanelTabValue=PROBLEM
+
+
+
+
+
+
+
