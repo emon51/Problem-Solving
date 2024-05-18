@@ -43,7 +43,7 @@ class Solution:
             if s >= b or e <= a:
                 ans.append([s, e])
             #Overlap
-            elif s < a and e > b:
+            elif s < a and b < e:
                 ans.append([s, a])
                 ans.append([b, e])
             elif s < a: 
