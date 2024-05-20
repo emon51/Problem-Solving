@@ -63,7 +63,8 @@ Explanation 2:
  Meeting three can be done in conference room 2 from 15 - 29 as it is free in this interval.
  Meeting two can be done in conference room 4 from 18 - 23 as it is free in this interval.
 
-Note:You only need to implement the given function. Do not read input, instead use the arguments to the function. Do not print the output, instead return values as specified. Still have a question? Checkout Sample Codes for more details.
+Note:You only need to implement the given function. Do not read input, instead use the arguments to 
+the function. Do not print the output, instead return values as specified. Still have a question? Checkout Sample Codes for more details.
 '''
 
 import heapq
@@ -77,5 +78,22 @@ class Solution:
             if heap and heap[0][0] <= s:
                 heapq.heappop(heap)
             heapq.heappush(heap, [e, s])
+        return len(heap)
+
+
+
+
+import heapq
+class Solution:
+    # @param A : list of list of integers
+    # @return an integer
+    def solve(self, A):
+        
+        A.sort()
+        heap = [] #min heap, stored just end point
+        for s, e in A:
+            if heap and heap[0] <= s:
+                heapq.heappop(heap)
+            heapq.heappush(heap, e)
         return len(heap)
             
