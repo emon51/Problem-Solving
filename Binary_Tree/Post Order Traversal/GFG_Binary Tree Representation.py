@@ -23,9 +23,6 @@ The 7 node binary tree is represented above.
 
 class Solution:
     def createTree(self, root, nodes):
-        if not root:
-            return 
-        
         def fun(i):
             if i >= len(nodes):
                 return None 
