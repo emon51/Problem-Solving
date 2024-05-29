@@ -39,4 +39,52 @@ class Solution:
       
       #print(res)
       return res
+
+
+#Coding Ninjas: https://www.naukri.com/code360/problems/vertical-order-traversal_920533?leftPanelTabValue=PROBLEM
+'''
+Problem statement
+Given a binary tree, return the vertical order traversal of the values of the nodes of the given tree.
+
+For each node at position (X, Y), (X-1, Y-1) will be its left child position while (X+1, Y-1) will be the right child position.
+
+Running a vertical line from X = -infinity to X = +infinity, now whenever this vertical line touches some nodes, we need to add those values of the nodes in order starting from top to bottom with the decreasing ‘Y’ coordinates.
+
+Note:
+If two nodes have the same position, then the value of the node that is added first will be the value that is on the left si
+'''
+
+from collections import deque, defaultdict
+
+class BinaryTreeNode:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+def verticalOrderTraversal(root):
+    if not root:
+        return []
+
+    q = deque()
+    node_map = defaultdict(list)
+    q.append((root, 0))  # (node, vertical distance
+    
+    while q:
+        node, x = q.popleft()
+        node_map[x].append(node.data)
+        
+        if node.left:
+            q.append((node.left, x - 1))
+        if node.right:
+            q.append((node.right, x + 1))
+    
+    res = []
+    for key in sorted(node_map):
+        li = node_map[key]
+        for val in li:
+            res.append(val)
+    
+    return res
+
         
