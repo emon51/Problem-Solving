@@ -32,7 +32,6 @@ Constraints:
 """
 
 #Brute-Forces(Accepted)
-
 class Solution:
     def search(self, pattern, text):
         
@@ -45,5 +44,21 @@ class Solution:
                 j += 1
             
             if j == patLen:
+                res.append(i + 1)
+        return res
+
+
+#Accepted -------> string.find(value, start, end)
+class Solution:
+    def search(self, pat, txt):
+        
+        res = []
+        i = txt.find(pat)
+        if i == -1:
+            return [-1]
+        res.append(i + 1)
+        while i != -1:
+            i = txt.find(pat, i + 1)
+            if i != -1:
                 res.append(i + 1)
         return res
